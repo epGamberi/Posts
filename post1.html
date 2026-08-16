@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post 01 | Primeiras Impressões</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Mantemos as mesmas variáveis da página inicial para consistência */
+        :root {
+            --bg-color: #f4f4f0;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
+            --accent-color: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        /* Estilos específicos do Post */
+        .post-container {
+            max-width: 700px;
+            margin: 4rem auto;
+            padding: 0 5%;
+        }
+
+        .post-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .post-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .post-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 0.5rem;
+        }
+
+        .post-content p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-text">CV Blog.</a>
+        <div class="author-name">Seu Nome Aqui - 1234567</div>
+    </header>
+
+    <main class="post-container">
+        <article>
+            <header class="post-header">
+                <div class="post-meta">Post 01 • 16 Ago, 2026</div>
+                <h1>Do senso comum à ciência da imagem</h1>
+            </header>
+
+            <div class="post-content">
+                <h2>O que eu achava que veria na disciplina?</h2>
+                <p>Antes de começar a matéria, minha visão sobre "Computação Visual" era bastante superficial. Sendo honesto, pelo nome, eu imaginava que seria algo focado quase exclusivamente em criar gráficos para jogos 3D, aprender a usar ferramentas de edição de imagem ou talvez algo voltado para o design de interfaces.</p>
+                <p>Na minha cabeça, a disciplina ensinaria o computador a "desenhar" coisas bonitas na tela, uma visão muito mais voltada para o trabalho artístico e uso de ferramentas do que para a ciência e os algoritmos por trás delas.</p>
+
+                <h2>O que eu entendi que estudaremos?</h2>
+                <p>Logo após os primeiros contatos com a matéria, percebi que a área é muito mais profunda e fascinante. Entendi que não vamos apenas "criar" imagens, mas sim estudar a ciência de como o computador interpreta, processa e manipula os dados visuais.</p>
+                <p>Compreendi que a Computação Visual é um guarda-chuva que envolve áreas como o Processamento de Imagens (manipular os pixels de uma foto), a Computação Gráfica (a matemática para gerar imagens a partir de dados) e a Visão Computacional (ensinar a máquina a "enxergar" e extrair informações do mundo real, como em um reconhecimento facial).</p>
+                <p>Ficou claro que é muito menos sobre ser um "artista digital" e muito mais sobre a lógica, a matemática e os algoritmos que fazem essa ponte vital entre o mundo físico e o digital.</p>
+            </div>
+        </article>
+
+        <!-- Botão para voltar para a Home -->
+        <a href="index.html" class="back-button">← Voltar para os posts</a>
+    </main>
+
+</body>
+</html>
