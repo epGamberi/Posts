@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post 02 | Expandindo a Visão sobre a Matéria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f4f0;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
+            --accent-color: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .post-container {
+            max-width: 740px;
+            margin: 4rem auto;
+            padding: 0 5%;
+        }
+
+        .post-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .post-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .post-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--accent-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 0.4rem;
+        }
+
+        .post-content p {
+            font-size: 1.05rem;
+            color: #333;
+            margin-bottom: 1.4rem;
+        }
+
+        /* Destaque para citações / reflexões */
+        .callout-box {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .callout-box p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        /* Container responsivo do YouTube */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            margin: 2.5rem 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .task-list {
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .task-list li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            color: #333;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-text">Blog de Computação Visual</a>
+        <div class="author-name">Enzo Ponte Gamberi - 10389931</div>
+    </header>
+
+    <main class="post-container">
+        <article>
+            <header class="post-header">
+                <div class="post-meta">Post 02 • 23 Ago, 2026</div>
+                <h1>Desmistificando a Visão Computacional: Conceito e Aplicações</h1>
+            </header>
+
+            <div class="post-content">
+                <p>Para aprofundar meu entendimento inicial sobre a disciplina, encontrei um vídeo excelente do canal <strong>Programação Dinâmica</strong> que resume com clareza o objetivo da área: <em>dar a capacidade de "enxergar" e interpretar o mundo aos computadores</em>.</p>
+
+                <!-- Vídeo Embutido -->
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/RSkbjZZb-1c" 
+                        title="O que é VISÃO COMPUTACIONAL? Conceito e Aplicações | IA Descomplicada #02" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <h2>O que esperar encontrar na disciplina?</h2>
+                <p>O vídeo explica que a visão é uma forma de perceber o mundo, mas os sentidos humanos são limitados (não enxergamos em infravermelho ou microscópios). As máquinas, no entanto, têm outras capacidades e limitações. A partir disso, a Computação Visual lida com problemas fundamentais que certamente exploraremos:</p>
+
+                <ul class="task-list">
+                    <li><strong>Detecção de Objetos:</strong> Encontrar elementos e identificar sua posição na cena.</li>
+                    <li><strong>Reconhecimento:</strong> Associar o que foi detectado com identidades conhecidas (ex: reconhecimento facial).</li>
+                    <li><strong>Segmentação:</strong> Isolar objetos do fundo (como quando trocamos o fundo de uma foto ou vídeo).</li>
+                    <li><strong>Análise de Movimento:</strong> Identificar alterações dinâmicas em sequências de vídeo.</li>
+                    <li><strong>Reconstrução 3D:</strong> O inverso da computação gráfica — pegar imagens 2D e inferir profundidade, dimensões e espacialidade.</li>
+                </ul>
+
+                <div class="callout-box">
+                    <p>"A Computação Gráfica transforma dados e modelos matemáticos em imagens. A Visão Computacional faz o caminho inverso: extrai dados, dimensões e significado a partir de imagens."</p>
+                </div>
+
+                <h2>Aplicações Reais que Inspiram</h2>
+                <p>Ver como esses conceitos se traduzem em soluções práticas ajuda a visualizar onde todo esse estudo nos levará. Desde o funcionamento de <strong>carros autônomos</strong> e segurança com <strong>detecção de EPIs</strong>, até a <strong>preservação de patrimônio cultural</strong> através de digitalizações 3D e <strong>Realidade Aumentada</strong>.</p>
+                
+                <p>Esse panorama confirmou o que comecei a perceber na primeira semana: a disciplina vai muito além de estética visual; trata-se de ensinar a máquina a compreender o ambiente através de dados visuais.</p>
+            </div>
+        </article>
+
+        <a href="index.html" class="back-button">← Voltar para os posts</a>
+    </main>
+
+</body>
+</html>
