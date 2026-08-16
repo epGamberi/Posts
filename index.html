@@ -1,1 +1,170 @@
-<h1>Meu blog de posts!</h1>.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computação Visual | Meu Diário</title>
+    <!-- Fonte moderna do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --bg-color: #f4f4f0; /* Fundo levemente bege/cinza, muito elegante */
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
+            --accent-color: #0f172a; /* Azul bem escuro para destaques */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        /* Seção Hero (Apresentação) */
+        .hero {
+            padding: 5rem 5%;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif; /* Fonte elegante para o título */
+            font-size: 3.5rem;
+            margin: 0 0 1rem 0;
+            color: var(--accent-color);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+
+        /* Grid de Posts */
+        .posts-section {
+            padding: 2rem 5% 5rem 5%;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+        }
+
+        /* Estilo dos Cards */
+        .post-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e0e0e0;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .post-number {
+            font-size: 0.8rem;
+            font-weight: 700;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .post-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.4rem;
+        }
+
+        .post-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .post-date {
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-text">CV Blog.</div>
+        <div class="author-name">Seu Nome Aqui - 1234567</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Registros e reflexões da disciplina</h1>
+            <p>Um espaço dedicado a organizar meus posts semanais, documentar meus aprendizados e acompanhar a evolução dos temas estudados em Computação Visual.</p>
+        </section>
+
+        <section class="posts-section">
+            <div class="posts-grid">
+                
+                <!-- Card do Post 1 -->
+                <a href="post1.html" class="post-card">
+                    <span class="post-number">POST 01</span>
+                    <h3>Primeiras Impressões</h3>
+                    <p>O que eu imaginava encontrar na disciplina e o que comecei a entender logo nos primeiros contatos com a matéria.</p>
+                    <span class="post-date">16 Ago, 2026</span>
+                </a>
+
+                <!-- Card do Post 2 (Espaço Reservado) -->
+                <div class="post-card" style="opacity: 0.6; cursor: default; transform: none; box-shadow: none;">
+                    <span class="post-number" style="background-color: #999;">POST 02</span>
+                    <h3>Em breve...</h3>
+                    <p>Espaço reservado para a publicação da segunda semana de aula.</p>
+                    <span class="post-date">--</span>
+                </div>
+
+                 <!-- Card do Post 3 (Espaço Reservado) -->
+                 <div class="post-card" style="opacity: 0.6; cursor: default; transform: none; box-shadow: none;">
+                    <span class="post-number" style="background-color: #999;">POST 03</span>
+                    <h3>Em breve...</h3>
+                    <p>Espaço reservado para a publicação da terceira semana de aula.</p>
+                    <span class="post-date">--</span>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
