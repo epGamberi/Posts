@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post 03 | O Padrão RGB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f4f0;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
+            --accent-color: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .post-container {
+            max-width: 740px;
+            margin: 4rem auto;
+            padding: 0 5%;
+        }
+
+        .post-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .post-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .post-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--accent-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 0.4rem;
+        }
+
+        .post-content p {
+            font-size: 1.05rem;
+            color: #333;
+            margin-bottom: 1.4rem;
+        }
+
+        .callout-box {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .callout-box p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        /* Estilos para blocos de código/matemática */
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+        }
+        
+        .code-block span.r { color: #e06c75; font-weight: bold; }
+        .code-block span.g { color: #98c379; font-weight: bold; }
+        .code-block span.b { color: #61afef; font-weight: bold; }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-text">Blog de Computação Visual</a>
+        <div class="author-name">Enzo Ponte Gamberi - 10389931</div>
+    </header>
+
+    <main class="post-container">
+        <article>
+            <header class="post-header">
+                <div class="post-meta">Post 03 • 30 Ago, 2026</div>
+                <h1>O Padrão RGB: Transformando Cores em Números</h1>
+            </header>
+
+            <div class="post-content">
+                <p>Nesta semana, mergulhamos em um dos conceitos mais fundamentais da Computação Visual: o modelo de cores <strong>RGB</strong>. Foi o momento de deixar de lado a visão artística das imagens e começar a entender como o computador realmente as processa "por baixo dos panos".</p>
+
+                <h2>Luz em vez de tinta</h2>
+                <p>O RGB é um modelo de cor aditivo baseado em três canais de luz: <strong>Red (Vermelho)</strong>, <strong>Green (Verde)</strong> e <strong>Blue (Azul)</strong>. Diferente da mistura de tintas no papel (onde misturar todas as cores resulta em um tom escuro/preto), a tela do computador emite luz. Isso significa que, se você somar a intensidade máxima de vermelho, verde e azul, você obterá a cor branca.</p>
+
+                <h2>A Imagem como uma Matriz Matemática</h2>
+                <p>O maior "estalo" dessa aula foi entender a estrutura de dados de uma imagem. Para a máquina, uma fotografia não é um desenho; é uma gigantesca matriz bidimensional (uma grade de linhas e colunas) onde cada quadradinho é um <em>pixel</em>.</p>
+
+                <p>No padrão RGB padrão de 8 bits, cada pixel armazena a intensidade das três cores primárias com valores que vão de <strong>0 a 255</strong>. Veja um exemplo prático de como o computador "lê" a cor de um único pixel vermelho puro:</p>
+
+                <div class="code-block">
+                    Pixel = (<span class="r">255</span>, <span class="g">0</span>, <span class="b">0</span>) 
+                    <br>
+                    // 100% de luz vermelha, 0% verde, 0% azul
+                </div>
+
+                <div class="code-block">
+                    Pixel = (<span class="r">255</span>, <span class="g">255</span>, <span class="b">0</span>) 
+                    <br>
+                    // Misturando vermelho e verde temos Amarelo!
+                </div>
+
+                <div class="callout-box">
+                    <p>"Ao perceber que cada pixel é apenas um vetor numérico [R, G, B], fica fácil entender como a Visão Computacional funciona: alterar o brilho de uma foto ou aplicar um filtro não passa de realizar operações matemáticas de soma ou multiplicação em cima dessa matriz."</p>
+                </div>
+
+                <h2>Por que isso importa?</h2>
+                <p>Entender que as cores são números é a base para tudo o que faremos a seguir. Se quisermos que um algoritmo encontre uma "maçã vermelha" em uma foto, ele não vai procurar pelo conceito de maçã, mas sim buscar na matriz por clusters de pixels onde o canal <strong>R (Red)</strong> tem valores altíssimos enquanto <strong>G</strong> e <strong>B</strong> possuem valores baixos.</p>
+            </div>
+        </article>
+
+        <a href="index.html" class="back-button">← Voltar para os posts</a>
+    </main>
+
+</body>
+</html>
