@@ -143,29 +143,29 @@
             </header>
 
             <div class="post-content">
-                <p>Nesta semana, avançamos para um conceito extremamente prático e visual na disciplina: a filtragem espacial. Aprendi que a filtragem espacial é uma operação realizada sob um pixel e sua vizinhança[cite: 1]. A ideia principal de "filtrar" nesse contexto é aceitar ou rejeitar certas frequências[cite: 1]. Por exemplo, um filtro passa-baixa aceita baixas frequências, enquanto um filtro passa-alta aceita altas frequências[cite: 1].</p>
+                <p>Nesta semana, avançamos para um conceito extremamente prático e visual na disciplina: a filtragem espacial. Aprendi que a filtragem espacial é uma operação realizada sob um pixel e sua vizinhança. A ideia principal de "filtrar" nesse contexto é aceitar ou rejeitar certas frequências. Por exemplo, um filtro passa-baixa aceita baixas frequências, enquanto um filtro passa-alta aceita altas frequências.</p>
 
                 <h2>Deslizando o Kernel pela Imagem</h2>
-                <p>Esses filtros espaciais também são chamados de várias formas: máscaras, kernels, janelas ou templates[cite: 1]. Na prática, a operação de filtragem cria um novo pixel com coordenadas iguais às coordenadas do centro da vizinhança[cite: 1]. Um detalhe conceitual muito importante é que a imagem original não é modificada[cite: 1]. Todo pixel original filtrado é inserido em uma nova imagem, que se torna a imagem processada[cite: 1].</p>
+                <p>Esses filtros espaciais também são chamados de várias formas: máscaras, kernels, janelas ou templates. Na prática, a operação de filtragem cria um novo pixel com coordenadas iguais às coordenadas do centro da vizinhança. Um detalhe conceitual muito importante é que a imagem original não é modificada. Todo pixel original filtrado é inserido em uma nova imagem, que se torna a imagem processada.</p>
 
-                <p>Durante a aula, também vimos a diferença entre correlação e convolução. O processo de "deslizar" o kernel pela imagem, multiplicando elemento a elemento e somando, é uma operação de correlação[cite: 1]. Já a operação de convolução possui um passo inicial extra: o kernel é rotacionado em 180 graus (invertido horizontal e depois verticalmente)[cite: 1].</p>
+                <p>Durante a aula, também vimos a diferença entre correlação e convolução. O processo de "deslizar" o kernel pela imagem, multiplicando elemento a elemento e somando, é uma operação de correlação. Já a operação de convolução possui um passo inicial extra: o kernel é rotacionado em 180 graus (invertido horizontal e depois verticalmente).</p>
 
                 <div class="callout-box">
-                    <p>"Os filtros de suavização, que são filtros passa-baixa, são usados para atenuar variações bruscas de intensidade e funcionam para redução de ruído[cite: 1]."</p>
+                    <p>"Os filtros de suavização, que são filtros passa-baixa, são usados para atenuar variações bruscas de intensidade e funcionam para redução de ruído."</p>
                 </div>
 
                 <h2>Borramento e Tratamento de Ruídos</h2>
-                <p>Entramos a fundo nos filtros de suavização, cuja saída linear é geralmente a média (aritmética ou ponderada) dos pixels na vizinhança da máscara[cite: 1]. Uma das regras mais interessantes que aprendi é que o efeito da suavização não depende só dos valores no filtro: quanto maior o filtro, maior será o resultado do borramento da imagem filtrada[cite: 1].</p>
+                <p>Entramos a fundo nos filtros de suavização, cuja saída linear é geralmente a média (aritmética ou ponderada) dos pixels na vizinhança da máscara. Uma das regras mais interessantes que aprendi é que o efeito da suavização não depende só dos valores no filtro: quanto maior o filtro, maior será o resultado do borramento da imagem filtrada.</p>
 
-                <p>Por fim, conhecemos os filtros não-lineares (ou de estatística de ordem), que se baseiam em ordenar os pixels da região[cite: 1]. Alguns exemplos:</p>
+                <p>Por fim, conhecemos os filtros não-lineares (ou de estatística de ordem), que se baseiam em ordenar os pixels da região. Alguns exemplos:</p>
 
                 <ul class="task-list">
-                    <li><strong>Filtro de mínimo:</strong> Tende a aumentar áreas escuras e erodir objetos claros[cite: 1].</li>
-                    <li><strong>Filtro de máximo:</strong> Tende a aumentar áreas claras e encolher objetos escuros[cite: 1].</li>
-                    <li><strong>Filtro de mediana:</strong> Substitui o valor do pixel central pelo valor da mediana da região filtrada[cite: 1].</li>
+                    <li><strong>Filtro de mínimo:</strong> Tende a aumentar áreas escuras e erodir objetos claros.</li>
+                    <li><strong>Filtro de máximo:</strong> Tende a aumentar áreas claras e encolher objetos escuros.</li>
+                    <li><strong>Filtro de mediana:</strong> Substitui o valor do pixel central pelo valor da mediana da região filtrada.</li>
                 </ul>
 
-                <p>O filtro de mediana me chamou bastante atenção pois ele se provou particularmente mais eficaz na redução de ruídos do tipo sal e pimenta (aqueles pontos brancos e pretos que corrompem a imagem) em comparação ao filtro de média clássico[cite: 1].</p>
+                <p>O filtro de mediana me chamou bastante atenção pois ele se provou particularmente mais eficaz na redução de ruídos do tipo sal e pimenta (aqueles pontos brancos e pretos que corrompem a imagem) em comparação ao filtro de média clássico.</p>
             </div>
         </article>
 
