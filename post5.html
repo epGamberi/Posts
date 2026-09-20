@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post 05 | Detecção de Bordas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f4f0;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
+            --accent-color: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .post-container {
+            max-width: 740px;
+            margin: 4rem auto;
+            padding: 0 5%;
+        }
+
+        .post-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .post-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .post-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--accent-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 0.4rem;
+        }
+
+        .post-content p {
+            font-size: 1.05rem;
+            color: #333;
+            margin-bottom: 1.4rem;
+        }
+
+        .callout-box {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .callout-box p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        .task-list {
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .task-list li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            color: #333;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-text">Blog de Computação Visual</a>
+        <div class="author-name">Enzo Ponte Gamberi - 10389931</div>
+    </header>
+
+    <main class="post-container">
+        <article>
+            <header class="post-header">
+                <div class="post-meta">Post 05 • 13 Set, 2026</div>
+                <h1>Detecção de Bordas: Encontrando os Limites</h1>
+            </header>
+
+            <div class="post-content">
+                <p>Nesta quinta semana, o foco da disciplina foi a detecção de bordas, uma técnica cujo objetivo é identificar mudanças bruscas (descontinuidades) em uma imagem[cite: 6]. É um conceito fascinante porque, intuitivamente, muito da informação semântica e de forma da imagem pode ser codificada nas bordas[cite: 6].</p>
+
+                <h2>Imagens como Funções e Derivadas</h2>
+                <p>Para o computador localizar essas bordas, nós passamos a tratar as imagens como funções de intensidade[cite: 6]. Uma borda é uma região de mudança rápida nessa função[cite: 6]. Descobri que as bordas correspondem aos extremos da derivada primeira[cite: 6]. Além disso, o gradiente de uma imagem nos dá informações valiosas:</p>
+
+                <ul class="task-list">
+                    <li><strong>Magnitude:</strong> Indica a intensidade geral ("força") da borda[cite: 6].</li>
+                    <li><strong>Orientação:</strong> O ângulo aponta na direção da mudança mais rápida de intensidade, sendo sempre perpendicular à borda[cite: 6].</li>
+                </ul>
+
+                <h2>O Problema do Ruído</h2>
+                <p>No entanto, a teoria enfrenta desafios na prática. Os filtros derivativos respondem intensamente aos pixels que diferem de seus vizinhos, o que significa que a derivada amplifica o ruído da imagem[cite: 6]. A solução para isso é suavizar primeiro[cite: 6]. Aprendemos que podemos usar as derivadas do filtro Gaussiano para unir a etapa de suavização e a de diferenciação[cite: 6].</p>
+
+                <div class="callout-box">
+                    <p>"A escolha do tamanho do filtro (controle do grau de suavização) altera completamente o resultado: um filtro com sigma baixo detecta detalhes finos, enquanto um sigma grande detecta bordas de grande escala e borra mais a imagem[cite: 6]."</p>
+                </div>
+
+                <h2>O Detector de Canny</h2>
+                <p>O ponto alto da aula foi o estudo do Detector de bordas de Canny. O professor explicou que o algoritmo executa passos precisos[cite: 6]:</p>
+                
+                <ul class="task-list">
+                    <li>Filtra as imagens com derivadas x e y da Gaussiana e encontra a magnitude e orientação do gradiente[cite: 6].</li>
+                    <li>Aplica a <strong>supressão de não-máximos</strong>, que analisa a orientação para cada pixel e suprime (zera) a magnitude caso o pixel atual não seja o maior entre seus vizinhos, reduzindo assim a espessura das bordas[cite: 6].</li>
+                    <li>Realiza a <strong>limiarização e ligação (histerese)</strong>, definindo um limiar baixo para bordas fracas e um limiar alto para bordas fortes[cite: 6]. Pontos com gradiente entre os limiares só são considerados bordas se estiverem conectados a pontos de bordas fortes[cite: 6].</li>
+                </ul>
+            </div>
+        </article>
+
+        <a href="index.html" class="back-button">← Voltar para os posts</a>
+    </main>
+
+</body>
+</html>
