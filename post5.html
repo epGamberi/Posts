@@ -143,30 +143,30 @@
             </header>
 
             <div class="post-content">
-                <p>Nesta quinta semana, o foco da disciplina foi a detecção de bordas, uma técnica cujo objetivo é identificar mudanças bruscas (descontinuidades) em uma imagem[cite: 6]. É um conceito fascinante porque, intuitivamente, muito da informação semântica e de forma da imagem pode ser codificada nas bordas[cite: 6].</p>
+                <p>Nesta quinta semana, o foco da disciplina foi a detecção de bordas, uma técnica cujo objetivo é identificar mudanças bruscas (descontinuidades) em uma imagem. É um conceito fascinante porque, intuitivamente, muito da informação semântica e de forma da imagem pode ser codificada nas bordas.</p>
 
                 <h2>Imagens como Funções e Derivadas</h2>
-                <p>Para o computador localizar essas bordas, nós passamos a tratar as imagens como funções de intensidade[cite: 6]. Uma borda é uma região de mudança rápida nessa função[cite: 6]. Descobri que as bordas correspondem aos extremos da derivada primeira[cite: 6]. Além disso, o gradiente de uma imagem nos dá informações valiosas:</p>
+                <p>Para o computador localizar essas bordas, nós passamos a tratar as imagens como funções de intensidade. Uma borda é uma região de mudança rápida nessa função. Descobri que as bordas correspondem aos extremos da derivada primeira. Além disso, o gradiente de uma imagem nos dá informações valiosas:</p>
 
                 <ul class="task-list">
-                    <li><strong>Magnitude:</strong> Indica a intensidade geral ("força") da borda[cite: 6].</li>
-                    <li><strong>Orientação:</strong> O ângulo aponta na direção da mudança mais rápida de intensidade, sendo sempre perpendicular à borda[cite: 6].</li>
+                    <li><strong>Magnitude:</strong> Indica a intensidade geral ("força") da borda.</li>
+                    <li><strong>Orientação:</strong> O ângulo aponta na direção da mudança mais rápida de intensidade, sendo sempre perpendicular à borda.</li>
                 </ul>
 
                 <h2>O Problema do Ruído</h2>
-                <p>No entanto, a teoria enfrenta desafios na prática. Os filtros derivativos respondem intensamente aos pixels que diferem de seus vizinhos, o que significa que a derivada amplifica o ruído da imagem[cite: 6]. A solução para isso é suavizar primeiro[cite: 6]. Aprendemos que podemos usar as derivadas do filtro Gaussiano para unir a etapa de suavização e a de diferenciação[cite: 6].</p>
+                <p>No entanto, a teoria enfrenta desafios na prática. Os filtros derivativos respondem intensamente aos pixels que diferem de seus vizinhos, o que significa que a derivada amplifica o ruído da imagem. A solução para isso é suavizar primeiro. Aprendemos que podemos usar as derivadas do filtro Gaussiano para unir a etapa de suavização e a de diferenciação.</p>
 
                 <div class="callout-box">
-                    <p>"A escolha do tamanho do filtro (controle do grau de suavização) altera completamente o resultado: um filtro com sigma baixo detecta detalhes finos, enquanto um sigma grande detecta bordas de grande escala e borra mais a imagem[cite: 6]."</p>
+                    <p>"A escolha do tamanho do filtro (controle do grau de suavização) altera completamente o resultado: um filtro com sigma baixo detecta detalhes finos, enquanto um sigma grande detecta bordas de grande escala e borra mais a imagem."</p>
                 </div>
 
                 <h2>O Detector de Canny</h2>
-                <p>O ponto alto da aula foi o estudo do Detector de bordas de Canny. O professor explicou que o algoritmo executa passos precisos[cite: 6]:</p>
+                <p>O ponto alto da aula foi o estudo do Detector de bordas de Canny. O professor explicou que o algoritmo executa passos precisos:</p>
                 
                 <ul class="task-list">
-                    <li>Filtra as imagens com derivadas x e y da Gaussiana e encontra a magnitude e orientação do gradiente[cite: 6].</li>
-                    <li>Aplica a <strong>supressão de não-máximos</strong>, que analisa a orientação para cada pixel e suprime (zera) a magnitude caso o pixel atual não seja o maior entre seus vizinhos, reduzindo assim a espessura das bordas[cite: 6].</li>
-                    <li>Realiza a <strong>limiarização e ligação (histerese)</strong>, definindo um limiar baixo para bordas fracas e um limiar alto para bordas fortes[cite: 6]. Pontos com gradiente entre os limiares só são considerados bordas se estiverem conectados a pontos de bordas fortes[cite: 6].</li>
+                    <li>Filtra as imagens com derivadas x e y da Gaussiana e encontra a magnitude e orientação do gradiente.</li>
+                    <li>Aplica a <strong>supressão de não-máximos</strong>, que analisa a orientação para cada pixel e suprime (zera) a magnitude caso o pixel atual não seja o maior entre seus vizinhos, reduzindo assim a espessura das bordas.</li>
+                    <li>Realiza a <strong>limiarização e ligação (histerese)</strong>, definindo um limiar baixo para bordas fracas e um limiar alto para bordas fortes. Pontos com gradiente entre os limiares só são considerados bordas se estiverem conectados a pontos de bordas fortes.</li>
                 </ul>
             </div>
         </article>
