@@ -143,37 +143,37 @@
             </header>
 
             <div class="post-content">
-                <p>Nesta semana, saímos um pouco do domínio espacial (o plano direto dos pixels) e passamos a estudar o processamento de imagens no <strong>domínio da frequência</strong>, cuja filtragem é realizada com a Transformada de Fourier (FT)[cite: 262, 263]. O conceito parte da ideia proposta por Jean-Baptiste Joseph Fourier em 1807: qualquer função periódica pode ser expressa como a soma de senos e/ou cossenos de diferentes frequências, cada uma multiplicada por um coeficiente diferente[cite: 263].</p>
+                <p>Nesta semana, saímos um pouco do domínio espacial (o plano direto dos pixels) e passamos a estudar o processamento de imagens no <strong>domínio da frequência</strong>, cuja filtragem é realizada com a Transformada de Fourier (FT). O conceito parte da ideia proposta por Jean-Baptiste Joseph Fourier em 1807: qualquer função periódica pode ser expressa como a soma de senos e/ou cossenos de diferentes frequências, cada uma multiplicada por um coeficiente diferente.</p>
 
                 <h2>Espectro da Frequência e Dualidade</h2>
-                <p>A Transformada de Fourier converte a imagem em valores complexos (formados por uma componente real e uma imaginária)[cite: 269, 274]. Para visualizar o resultado, trabalhamos com a magnitude da transformada, chamada de <strong>Espectro de Fourier</strong> (ou Espectro da Frequência), que indica o "quanto" de uma frequência está presente na função original, enquanto o ângulo de fase indica "onde" ela está na imagem[cite: 270]. Além disso, a imagem original pode ser totalmente recuperada, sem perda de informação, aplicando a Transformada de Fourier Inversa (IFT)[cite: 266, 268].</p>
+                <p>A Transformada de Fourier converte a imagem em valores complexos (formados por uma componente real e uma imaginária). Para visualizar o resultado, trabalhamos com a magnitude da transformada, chamada de <strong>Espectro de Fourier</strong> (ou Espectro da Frequência), que indica o "quanto" de uma frequência está presente na função original, enquanto o ângulo de fase indica "onde" ela está na imagem. Além disso, a imagem original pode ser totalmente recuperada, sem perda de informação, aplicando a Transformada de Fourier Inversa (IFT).</p>
 
-                <p>Observamos propriedades importantes de dualidade entre o domínio espacial e o domínio da frequência[cite: 280]:</p>
+                <p>Observamos propriedades importantes de dualidade entre o domínio espacial e o domínio da frequência:</p>
 
                 <ul class="task-list">
-                    <li>Um impulso no domínio espacial (variação abrupta e localizada) corresponde a uma constante no domínio da frequência, enquanto uma constante no domínio espacial corresponde a um impulso na frequência[cite: 280].</li>
-                    <li>O alargamento de uma função em um domínio significa o estreitamento no outro e vice-versa[cite: 281, 282].</li>
-                    <li>A convolução de duas funções no domínio espacial equivale a uma multiplicação no domínio da frequência (e vice-versa)[cite: 283, 284].</li>
+                    <li>Um impulso no domínio espacial (variação abrupta e localizada) corresponde a uma constante no domínio da frequência, enquanto uma constante no domínio espacial corresponde a um impulso na frequência.</li>
+                    <li>O alargamento de uma função em um domínio significa o estreitamento no outro e vice-versa.</li>
+                    <li>A convolução de duas funções no domínio espacial equivale a uma multiplicação no domínio da frequência (e vice-versa).</li>
                 </ul>
 
-                <p>Na prática, isso mostra que aumentar o tamanho de um filtro passa-baixa (*box filter*) no domínio espacial reduz o raio do círculo da frequência de corte no espectro da frequência, cortando mais altas frequências e aumentando o borramento[cite: 286, 287]. Operar nesse domínio também facilita remover ruídos periódicos, como padrões de *moiré* e ruídos senoidais, multiplicando a transformada por filtros rejeita-notch ou rejeita-banda Butterworth[cite: 288, 289].</p>
+                <p>Na prática, isso mostra que aumentar o tamanho de um filtro passa-baixa (<em>box filter</em>) no domínio espacial reduz o raio do círculo da frequência de corte no espectro da frequência, cortando mais altas frequências e aumentando o borramento. Operar nesse domínio também facilita remover ruídos periódicos, como padrões de <em>moiré</em> e ruídos senoidais, multiplicando a transformada por filtros rejeita-notch ou rejeita-banda Butterworth.</p>
 
                 <h2>Teorema da Amostragem e Aliasing</h2>
-                <p>Para que funções contínuas sejam processadas pelo computador, elas passam por amostragem (em intervalos uniformes $\Delta T$) e quantização[cite: 290]. A taxa de amostragem ($\frac{1}{\Delta T}$) pode gerar três situações: sobreamostragem ($\Delta T$ pequeno, com separação entre os períodos), amostragem crítica (períodos vizinhos, na frequência de Nyquist) e subamostragem ($\Delta T$ grande, onde os períodos se sobrepõem e não é possível preservar a transformada original)[cite: 292].</p>
+                <p>Para que funções contínuas sejam processadas pelo computador, elas passam por amostragem (em intervalos uniformes ΔT) e quantização. A taxa de amostragem (1 / ΔT) pode gerar três situações: sobreamostragem (ΔT pequeno, com separação entre os períodos), amostragem crítica (períodos vizinhos, na frequência de Nyquist) e subamostragem (ΔT grande, onde os períodos se sobrepõem e não é possível preservar a transformada original).</p>
 
                 <div class="callout-box">
-                    <p>"Pelo Teorema da Amostragem, uma função de banda limitada contínua pode ser recuperada a partir de suas amostras se elas forem adquiridas em uma taxa maior que o dobro da frequência mais alta contida na função (taxa de Nyquist)[cite: 296]."</p>
+                    <p>"Pelo Teorema da Amostragem, uma função de banda limitada contínua pode ser recuperada a partir de suas amostras se elas forem adquiridas em uma taxa maior que o dobro da frequência mais alta contida na função (taxa de Nyquist)."</p>
                 </div>
 
-                <p>Quando uma função é amostrada a uma taxa menor que o dobro de sua frequência mais alta (subamostragem), ocorre a sobreposição dos períodos, gerando o fenômeno conhecido como <strong>aliasing</strong>[cite: 297]. Em imagens digitais, o *aliasing* está sempre presente devido à limitação da duração da função e manifesta-se de duas formas[cite: 302]:</p>
+                <p>Quando uma função é amostrada a uma taxa menor que o dobro de sua frequência mais alta (subamostragem), ocorre a sobreposição dos períodos, gerando o fenômeno conhecido como <strong>aliasing</strong>. Em imagens digitais, o <em>aliasing</em> está sempre presente devido à limitação da duração da função e manifesta-se de duas formas:</p>
 
                 <ul class="task-list">
-                    <li><strong>Aliasing temporal:</strong> Ocorre entre quadros em uma sequência de imagens (vídeo), como o efeito de "roda de carroça", em que os raios de uma roda parecem girar para trás porque a velocidade de projeção é baixa demais em relação à rotação[cite: 303].</li>
-                    <li><strong>Aliasing espacial:</strong> Causado pela subamostragem na imagem digital, inserindo artefatos como serrilhados (*jaggies*) nas linhas, saliências falsas e padrões de frequência ausentes na imagem original[cite: 304].</li>
+                    <li><strong>Aliasing temporal:</strong> Ocorre entre quadros em uma sequência de imagens (vídeo), como o efeito de "roda de carroça", em que os raios de uma roda parecem girar para trás porque a velocidade de projeção é baixa demais em relação à rotação.</li>
+                    <li><strong>Aliasing espacial:</strong> Causado pela subamostragem na imagem digital, inserindo artefatos como serrilhados (<em>jaggies</em>) nas linhas, saliências falsas e padrões de frequência ausentes na imagem original.</li>
                 </ul>
 
                 <h2>Redimensionamento e Antialiasing</h2>
-                <p>No redimensionamento (reamostragem) de imagens, a ampliação pode ser vista como uma sobreamostragem e a redução como uma subamostragem (por exemplo, excluir linha sim e outra não para reduzir a imagem em 50% pelo vizinho mais próximo)[cite: 306, 307]. Para reduzir os efeitos do *aliasing*, realiza-se o processo de <strong>antialiasing</strong>, que consiste em suavizar a função de entrada aplicando um filtro passa-baixa (borramento) para atenuar as altas frequências antes da amostragem ou do redimensionamento[cite: 300, 305, 308].</p>
+                <p>No redimensionamento (reamostragem) de imagens, a ampliação pode ser vista como uma sobreamostragem e a redução como uma subamostragem (por exemplo, excluir linha sim e outra não para reduzir a imagem em 50% pelo vizinho mais próximo). Para reduzir os efeitos do <em>aliasing</em>, realiza-se o processo de <strong>antialiasing</strong>, que consiste em suavizar a função de entrada aplicando um filtro passa-baixa (borramento) para atenuar as altas frequências antes da amostragem ou do redimensionamento.</p>
             </div>
         </article>
 
