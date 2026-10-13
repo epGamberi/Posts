@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post 06 | Domínio da Frequência</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f4f0;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --card-bg: #ffffff;
+            --accent-color: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .post-container {
+            max-width: 740px;
+            margin: 4rem auto;
+            padding: 0 5%;
+        }
+
+        .post-header {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .post-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .post-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--accent-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 0.4rem;
+        }
+
+        .post-content p {
+            font-size: 1.05rem;
+            color: #333;
+            margin-bottom: 1.4rem;
+        }
+
+        .callout-box {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .callout-box p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text-main);
+        }
+
+        .task-list {
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .task-list li {
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            color: #333;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-text">Blog de Computação Visual</a>
+        <div class="author-name">Enzo Ponte Gamberi - 10389931</div>
+    </header>
+
+    <main class="post-container">
+        <article>
+            <header class="post-header">
+                <div class="post-meta">Post 06 • 20 Set, 2026</div>
+                <h1>Domínio da Frequência: Transformada de Fourier e Aliasing</h1>
+            </header>
+
+            <div class="post-content">
+                <p>Nesta semana, saímos um pouco do domínio espacial (o plano direto dos pixels) e passamos a estudar o processamento de imagens no <strong>domínio da frequência</strong>, cuja filtragem é realizada com a Transformada de Fourier (FT)[cite: 262, 263]. O conceito parte da ideia proposta por Jean-Baptiste Joseph Fourier em 1807: qualquer função periódica pode ser expressa como a soma de senos e/ou cossenos de diferentes frequências, cada uma multiplicada por um coeficiente diferente[cite: 263].</p>
+
+                <h2>Espectro da Frequência e Dualidade</h2>
+                <p>A Transformada de Fourier converte a imagem em valores complexos (formados por uma componente real e uma imaginária)[cite: 269, 274]. Para visualizar o resultado, trabalhamos com a magnitude da transformada, chamada de <strong>Espectro de Fourier</strong> (ou Espectro da Frequência), que indica o "quanto" de uma frequência está presente na função original, enquanto o ângulo de fase indica "onde" ela está na imagem[cite: 270]. Além disso, a imagem original pode ser totalmente recuperada, sem perda de informação, aplicando a Transformada de Fourier Inversa (IFT)[cite: 266, 268].</p>
+
+                <p>Observamos propriedades importantes de dualidade entre o domínio espacial e o domínio da frequência[cite: 280]:</p>
+
+                <ul class="task-list">
+                    <li>Um impulso no domínio espacial (variação abrupta e localizada) corresponde a uma constante no domínio da frequência, enquanto uma constante no domínio espacial corresponde a um impulso na frequência[cite: 280].</li>
+                    <li>O alargamento de uma função em um domínio significa o estreitamento no outro e vice-versa[cite: 281, 282].</li>
+                    <li>A convolução de duas funções no domínio espacial equivale a uma multiplicação no domínio da frequência (e vice-versa)[cite: 283, 284].</li>
+                </ul>
+
+                <p>Na prática, isso mostra que aumentar o tamanho de um filtro passa-baixa (*box filter*) no domínio espacial reduz o raio do círculo da frequência de corte no espectro da frequência, cortando mais altas frequências e aumentando o borramento[cite: 286, 287]. Operar nesse domínio também facilita remover ruídos periódicos, como padrões de *moiré* e ruídos senoidais, multiplicando a transformada por filtros rejeita-notch ou rejeita-banda Butterworth[cite: 288, 289].</p>
+
+                <h2>Teorema da Amostragem e Aliasing</h2>
+                <p>Para que funções contínuas sejam processadas pelo computador, elas passam por amostragem (em intervalos uniformes $\Delta T$) e quantização[cite: 290]. A taxa de amostragem ($\frac{1}{\Delta T}$) pode gerar três situações: sobreamostragem ($\Delta T$ pequeno, com separação entre os períodos), amostragem crítica (períodos vizinhos, na frequência de Nyquist) e subamostragem ($\Delta T$ grande, onde os períodos se sobrepõem e não é possível preservar a transformada original)[cite: 292].</p>
+
+                <div class="callout-box">
+                    <p>"Pelo Teorema da Amostragem, uma função de banda limitada contínua pode ser recuperada a partir de suas amostras se elas forem adquiridas em uma taxa maior que o dobro da frequência mais alta contida na função (taxa de Nyquist)[cite: 296]."</p>
+                </div>
+
+                <p>Quando uma função é amostrada a uma taxa menor que o dobro de sua frequência mais alta (subamostragem), ocorre a sobreposição dos períodos, gerando o fenômeno conhecido como <strong>aliasing</strong>[cite: 297]. Em imagens digitais, o *aliasing* está sempre presente devido à limitação da duração da função e manifesta-se de duas formas[cite: 302]:</p>
+
+                <ul class="task-list">
+                    <li><strong>Aliasing temporal:</strong> Ocorre entre quadros em uma sequência de imagens (vídeo), como o efeito de "roda de carroça", em que os raios de uma roda parecem girar para trás porque a velocidade de projeção é baixa demais em relação à rotação[cite: 303].</li>
+                    <li><strong>Aliasing espacial:</strong> Causado pela subamostragem na imagem digital, inserindo artefatos como serrilhados (*jaggies*) nas linhas, saliências falsas e padrões de frequência ausentes na imagem original[cite: 304].</li>
+                </ul>
+
+                <h2>Redimensionamento e Antialiasing</h2>
+                <p>No redimensionamento (reamostragem) de imagens, a ampliação pode ser vista como uma sobreamostragem e a redução como uma subamostragem (por exemplo, excluir linha sim e outra não para reduzir a imagem em 50% pelo vizinho mais próximo)[cite: 306, 307]. Para reduzir os efeitos do *aliasing*, realiza-se o processo de <strong>antialiasing</strong>, que consiste em suavizar a função de entrada aplicando um filtro passa-baixa (borramento) para atenuar as altas frequências antes da amostragem ou do redimensionamento[cite: 300, 305, 308].</p>
+            </div>
+        </article>
+
+        <a href="index.html" class="back-button">← Voltar para os posts</a>
+    </main>
+
+</body>
+</html>
